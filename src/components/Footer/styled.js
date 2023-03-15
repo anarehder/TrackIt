@@ -16,6 +16,9 @@ export const ContainerFooter = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    a {
+        text-decoration: none;
+    }
 `
 export const Vazio = styled.div`
     background-color: ${coresLayout.background};
@@ -38,7 +41,7 @@ export const Menu = styled.div`
     margin-bottom: 5px;
 `
 
-export const Hoje = styled.div`
+export const Hoje = styled.a`
     width: 90px;
     height: 90px;
     display: flex;
@@ -51,6 +54,15 @@ export const Hoje = styled.div`
     border-radius: 50%;
     img{
         position: absolute;
+        bottom: 7%;
+        left: 6%;
         margin-left: 10px;
+        display: flex;
+    }
+    a {
+        text-decoration: none;
+    }
+    p{
+        color:${coresFooter.background};
     }
 `
