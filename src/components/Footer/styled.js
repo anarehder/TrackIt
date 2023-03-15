@@ -49,4 +49,8 @@ export const Hoje = styled.div`
     z-index: 4;
     position: absolute;
     border-radius: 50%;
+    img{
+        position: absolute;
+        margin-left: 10px;
+    }
 `

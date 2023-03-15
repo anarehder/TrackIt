@@ -5,6 +5,7 @@ export const ContainerHabitos = styled.div`
     width: 100vw;
     position: absolute;
     top: 70px;
+    min-height: 75vh;
     padding-bottom: 110px;
     background-color: ${coresLayout.background};
     color: ${coresLayout.titulo};
