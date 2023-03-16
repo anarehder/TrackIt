@@ -1,12 +1,16 @@
 import { ContainerHeader, CaixaTopo } from "./styled"
-import logo from "../../assets/logo-completa.svg"
+import {UserContext} from "../../contexts/UserContext"
+import { useContext } from "react"
 
 export default function Header() {
+    const [userDados, ] = useContext(UserContext);
+    console.log(userDados.token);
+    
     return (
         <ContainerHeader>
-            <CaixaTopo>
+            <CaixaTopo data-test="header">
                 TrackIt
-                <img src={logo} alt="logo" />
+                <img src={userDados.image} alt="logo" />
             </CaixaTopo>
         </ContainerHeader>
     )

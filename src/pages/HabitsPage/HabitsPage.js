@@ -12,19 +12,19 @@ export default function HabitsPage() {
             <ContainerHabitos>
                 <TituloHabitos>
                     Meus hábitos
-                    <button> + </button>
+                    <button data-test="habit-create-btn"> + </button>
                 </TituloHabitos>
                 <ListaHabitos>
                 Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!
                 </ListaHabitos>
-                <AdicionarHabitos>
-                    <input type="text" placeholder="nome do hábito"/>
+                <AdicionarHabitos data-test="habit-create-container">
+                    <input type="text" placeholder="nome do hábito" data-test="habit-name-input"/>
                     <BotoesDias>
-                        {dias.map((dia,i)=>(<button key={i}> {dia} </button>))}
+                        {dias.map((dia,i)=>(<button key={i} data-test="habit-day"> {dia} </button>))}
                     </BotoesDias>
                     <BotoesFinais>
-                        <div>Cancelar</div>
-                        <button>Salvar</button>
+                        <div data-test="habit-create-cancel-btn">Cancelar</div>
+                        <button data-test="habit-create-save-btn">Salvar</button>
                     </BotoesFinais>
                 </AdicionarHabitos>
                 <Habito/>

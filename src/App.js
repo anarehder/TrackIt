@@ -4,19 +4,25 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage.js"
 import HabitsPage from "./pages/HabitsPage/HabitsPage.js"
 import TodayPage from "./pages/TodayPage/TodayPage.js"
 import HistoryPage from "./pages/HistoryPage/HistoryPage.js"
+import { UserContext } from "./contexts/UserContext.js"
+import { useState } from "react";
 
 export default function App() {
+  const [userDados, setUserDados] = useState();
+  
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/cadastro" element={<RegisterPage />} />
-        <Route path="/habitos" element={<HabitsPage />} />
-        <Route path="/hoje" element={<TodayPage />} />
-        <Route path="historico" element={<HistoryPage />} />
-      </Routes>
+    <UserContext.Provider value={[userDados, setUserDados]}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/cadastro" element={<RegisterPage />} />
+          <Route path="/habitos" element={<HabitsPage />} />
+          <Route path="/hoje" element={<TodayPage />} />
+          <Route path="historico" element={<HistoryPage />} />
+        </Routes>
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

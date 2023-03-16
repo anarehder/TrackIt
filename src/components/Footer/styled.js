@@ -41,7 +41,7 @@ export const Menu = styled.div`
     margin-bottom: 5px;
 `
 
-export const Hoje = styled.a`
+export const Hoje = styled.div`
     width: 90px;
     height: 90px;
     display: flex;

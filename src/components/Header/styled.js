@@ -29,6 +29,7 @@ export const CaixaTopo = styled.div`
     height: 50px;
     img {
         width: 50px;
+        height: 50px;
         background-color: white;
         border-radius: 50%;
     }
