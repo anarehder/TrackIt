@@ -1,5 +1,6 @@
 import { ContainerHabitoDiario, Texto, Icone, Titulo, Atual, Recorde } from "./styled"
 import done from "../../assets/done.png"
+import { useState } from "react";
 
 export default function HabitoDiario({ name, id, atual, feito, recorde, marcarHabito }) {
 
@@ -17,7 +18,7 @@ export default function HabitoDiario({ name, id, atual, feito, recorde, marcarHa
                     Sequência atual: <Atual status={feito === true ? "concluido" : ""}>{atual} dias</Atual>
                 </p>
                 <p data-test="today-habit-record">
-                    Seu recorde: <Recorde status={atual === recorde && atual > 0 ? "concluido" : ""}>{recorde} dias</Recorde>
+                    Seu recorde: <Recorde status={recorde > atual || recorde === 0 ? "" : "concluido"}>{recorde} dias</Recorde>
                 </p>
             </Texto>
             <Icone status={feito === true ? "concluido" : ""} onClick={() => marcar(id, feito)}>
