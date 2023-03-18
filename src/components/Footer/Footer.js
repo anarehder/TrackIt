@@ -1,20 +1,29 @@
-import { ContainerFooter, Vazio, Menu, Hoje } from "./styled"
-import vetorHoje from "../../assets/vetor_hoje.png"
+import { ContainerFooter, Vazio, Menu, Hoje, Progresso } from "./styled"
 import { Link } from "react-router-dom"
 import { PorcentagemContext } from "../../contexts/PorcentagemContext.js"
 import { useContext } from "react"
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function Footer() {
 
-    const [valorPorcentagem, ] = useContext(PorcentagemContext);
-    console.log("porcentagem",valorPorcentagem);
-
+    const [valorPorcentagem,] = useContext(PorcentagemContext);;
+    console.log(valorPorcentagem);
     return (
         <ContainerFooter data-test="menu">
             <Hoje>
                 <Link to={"/hoje"} data-test="today-link">
-                    <p>Hoje</p>
-                    <img src={vetorHoje} alt="vetor" />
+                    <Progresso>
+                        <CircularProgressbar value={valorPorcentagem} text="Hoje"
+                            background=""
+                            strokeWidth={8}
+                            className={Progresso}
+                            styles={buildStyles({
+                                textColor: "white",
+                                pathColor: "white",
+                                trailColor: "transparent"
+                            })} />
+                    </Progresso>
                 </Link>
             </Hoje>
 

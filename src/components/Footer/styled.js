@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {coresFooter, coresLayout} from "../../constants/colors.js"
+import { coresFooter, coresLayout } from "../../constants/colors.js"
 
 export const ContainerFooter = styled.div`
     background-color: ${coresFooter.background};
@@ -51,18 +51,19 @@ export const Hoje = styled.div`
     color:${coresFooter.background};
     z-index: 4;
     position: absolute;
-    border-radius: 50%;
-    img{
-        position: absolute;
-        bottom: 7%;
-        left: 6%;
-        margin-left: 10px;
-        display: flex;
-    }
+    border-radius: 100%;
+
     a {
         text-decoration: none;
     }
     p{
         color:${coresFooter.background};
     }
+`
+
+export const Progresso = styled.div`
+    width: 80px;
+    height: 80px;
+    //margin-left: 10px;
+    display: flex;
 `

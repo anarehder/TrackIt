@@ -4,7 +4,6 @@ import { useContext } from "react"
 
 export default function Header() {
     const [userDados, ] = useContext(UserContext);
-    console.log(userDados);
     
     return (
         <ContainerHeader>

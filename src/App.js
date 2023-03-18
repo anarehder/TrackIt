@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function App() {
   const [userDados, setUserDados] = useState();
-  const [valorPorcentagem, setValorPorcentagem] = useState();
+  const [valorPorcentagem, setValorPorcentagem] = useState(0);
 
   return (
     <UserContext.Provider value={[userDados, setUserDados]}>

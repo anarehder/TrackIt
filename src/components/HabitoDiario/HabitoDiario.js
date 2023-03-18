@@ -1,10 +1,12 @@
 import { ContainerHabitoDiario, Texto, Icone, Titulo, Atual, Recorde } from "./styled"
 import done from "../../assets/done.png"
 
-export default function HabitoDiario({ name, id, atual, feito, recorde }) {
+export default function HabitoDiario({ name, id, atual, feito, recorde, marcarHabito }) {
 
     function marcar(id) {
+        const body = {};
         console.log("marquei", id);
+        marcarHabito(id, body, feito);
     }
 
     return (
@@ -18,9 +20,8 @@ export default function HabitoDiario({ name, id, atual, feito, recorde }) {
                     Seu recorde: <Recorde status={atual === recorde && atual > 0 ? "concluido" : ""}>{recorde} dias</Recorde>
                 </p>
             </Texto>
-            <Icone status={feito === true ? "concluido" : ""}>
-                <img src={done} alt="concluido" data-test="today-habit-check-btn"
-                    onClick={() => marcar(id)} />
+            <Icone status={feito === true ? "concluido" : ""} onClick={() => marcar(id, feito)}>
+                <img src={done} alt="concluido" data-test="today-habit-check-btn" />
             </Icone>
         </ContainerHabitoDiario>
     )

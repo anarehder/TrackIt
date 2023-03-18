@@ -21,13 +21,14 @@ export const ContainerToday = styled.div`
         line-height: 30px;
         text-align: start;
     }
-    h2{
-        color:${props => props.status === "concluido" ?
+`
+
+export const QuantidadeConcluida = styled.h2`
+        color:${props => props.valorPorcentagem !== 0 ?
         coresHabitos.concluido : coresHabitos.vazio};
         width: 340px;
         margin: 5px auto;
         font-size: 18px;
         line-height: 22px;
         text-align: start;
-    }
 `

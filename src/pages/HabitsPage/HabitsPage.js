@@ -23,7 +23,6 @@ export default function HabitsPage() {
             "Authorization": `Bearer ${userDados.token}`
         }
     }
-    console.log(form);
 
     useEffect(() => {
 
@@ -54,28 +53,31 @@ export default function HabitsPage() {
 
     function enviarHabito(e) {
         e.preventDefault();
-        SetDesabilitado(true);
+        if (form.name !== "") {
+            SetDesabilitado(true);
 
-        const body = form;
-        console.log(body);
+            const body = form;
 
-        const url = `${URL_BASE}/habits`;
+            const url = `${URL_BASE}/habits`;
 
-        const requisicao = axios.post(url, body, config);
+            const requisicao = axios.post(url, body, config);
 
-        requisicao.then(resposta => {
-            console.log(resposta.data);
-            setListaDeHabitos([...listaDeHabitos, resposta.data]);
-            setForm({ name: "", days: [] });
-            setDia([]);
-            setAddHabito(false);
-            SetDesabilitado(false);
-        });
+            requisicao.then(resposta => {
+                console.log(resposta.data);
+                setListaDeHabitos([...listaDeHabitos, resposta.data]);
+                setForm({ name: "", days: [] });
+                setDia([]);
+                setAddHabito(false);
+                SetDesabilitado(false);
+            });
 
-        requisicao.catch(erro => {
-            console.log(erro.response.data);
-            SetDesabilitado(false);
-        });
+            requisicao.catch(erro => {
+                console.log(erro.response.data);
+                SetDesabilitado(false);
+            });
+        } else {
+            alert("Preencha corretamente o campo nome do hábito");
+        }
     }
 
     function cancelar() {
@@ -90,11 +92,11 @@ export default function HabitsPage() {
                 console.log(resposta.data);
                 setListaDeHabitos(listaDeHabitos.filter(h => h.id !== id));
             });
-    
+
             requisicao.catch(erro => {
                 console.log(erro.response.data);
             });
-            
+
         }
     }
 
@@ -129,7 +131,6 @@ export default function HabitsPage() {
                             onChange={handleChange}
                             data-test="habit-name-input"
                             disabled={desabilitado}
-                            required
                         />
                         <BotoesDias>
                             {dias.map((dia, i) => <BotaoDiaSemana key={dia} dia={dia} index={i} addDay={addDay} desabilitado={desabilitado} />)}
