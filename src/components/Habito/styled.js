@@ -29,17 +29,21 @@ export const Dias = styled.div`
     display: flex;
     justify-content: flex-start;
     margin-left: 13px;
-    button {
-        width: 30px;
-        height: 30px;
-        margin: 2px;
-        font-family: 'Lexend Deca', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 30px;
-        background-color: ${coresLayout.backgroundQuadros};
-        color: ${coresLayout.textQuadros};
-        border: 1px solid ${coresLayout.bordaQuadros};
-    }
+`
+
+export const BotaoDia = styled.button`
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: ${props => props.selecionado === "selecionado" ? 
+    coresLayout.backgroundSelecionados : coresLayout.backgroundQuadros};;
+    color: ${props => props.selecionado === "selecionado" ? 
+    coresLayout.textSelecionados : coresLayout.textQuadros};
+    border: 1px solid ${props => props.selecionado === "selecionado" ? 
+    coresLayout.backgroundSelecionados : coresLayout.bordaQuadros};
 `

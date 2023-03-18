@@ -2,7 +2,7 @@ import { ContainerHabitoDiario, Texto, Icone, Titulo } from "./styled"
 import feito from "../../assets/done.png"
 
 export default function HabitoDiario({habito}) {
-    console.log(habito);
+    //console.log(habito);
 
     return (
         <ContainerHabitoDiario data-test="today-habit-container">

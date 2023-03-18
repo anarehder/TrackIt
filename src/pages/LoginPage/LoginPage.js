@@ -10,7 +10,7 @@ import { UserContext } from "../../contexts/UserContext";
 export default function LoginPage() {
 
     const [form, setForm] = useState({ email: "", password: "" });
-    const [deshabilitado, SetDeshabilitado] = useState(false);
+    const [desabilitado, SetDesabilitado] = useState(false);
     const navigate = useNavigate();
     const [ , setUserDados] = useContext(UserContext);
 
@@ -26,7 +26,7 @@ export default function LoginPage() {
         event.preventDefault()
         const body = form;
         const promisse = axios.post(url, body);
-        SetDeshabilitado(true);
+        SetDesabilitado(true);
         promisse.then(resposta => {
             console.log(resposta.data);
             setUserDados(resposta.data);
@@ -35,7 +35,7 @@ export default function LoginPage() {
         promisse.catch(erro => {
             console.log(erro.response.data);
             alert(erro.response.data.message);
-            SetDeshabilitado(false);
+            SetDesabilitado(false);
         })
     }
 
@@ -51,7 +51,7 @@ export default function LoginPage() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        disabled={deshabilitado}
+                        disabled={desabilitado}
                         required
                     />
                     <input
@@ -61,13 +61,13 @@ export default function LoginPage() {
                         name="password"
                         value={form.password}
                         onChange={handleChange}
-                        disabled={deshabilitado}
+                        disabled={desabilitado}
                         required
                     />
                     <button
                         data-test="login-btn"
-                        type="submit" disabled={deshabilitado}>
-                        {deshabilitado === true ? <ThreeDots color="#FFFFFF" height="50px" width="50px" /> : "Entrar"}
+                        type="submit" disabled={desabilitado}>
+                        {desabilitado === true ? <ThreeDots color="#FFFFFF" height="50px" width="50px" /> : "Entrar"}
                     </button>
                 </form>
                 

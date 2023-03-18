@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function RegisterPage() {
     const [form, setForm] = useState({ email: "", name: "", image: "", password: "" });
-    const [deshabilitado, SetDeshabilitado] = useState(false);
+    const [desabilitado, SetDesabilitado] = useState(false);
     const navigate = useNavigate();
 
     const url = `${URL_BASE}/auth/sign-up`;
@@ -23,14 +23,14 @@ export default function RegisterPage() {
         event.preventDefault()
         const body = form;
         const promisse = axios.post(url, body);
-        SetDeshabilitado(true);
+        SetDesabilitado(true);
         promisse.then(resposta => {
             console.log(resposta.data);
             navigate("/");
         })
         promisse.catch(erro => {
             console.log(erro.response.data);
-            SetDeshabilitado(false);
+            SetDesabilitado(false);
             alert(erro.response.data.message);
             //poderia setar o form de novo para zerar os inputs
         })
@@ -48,7 +48,7 @@ export default function RegisterPage() {
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        disabled={deshabilitado}
+                        disabled={desabilitado}
                         required
                     />
                     <input
@@ -58,7 +58,7 @@ export default function RegisterPage() {
                         name="password"
                         value={form.password}
                         onChange={handleChange}
-                        disabled={deshabilitado}
+                        disabled={desabilitado}
                         required
                     />
                     <input
@@ -68,7 +68,7 @@ export default function RegisterPage() {
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        disabled={deshabilitado}
+                        disabled={desabilitado}
                         required
                     />
                     <input
@@ -78,13 +78,13 @@ export default function RegisterPage() {
                         name="image"
                         value={form.image}
                         onChange={handleChange}
-                        disabled={deshabilitado}
+                        disabled={desabilitado}
                         required
                     />
                     <button
                         data-test="signup-btn"
-                        type="submit" disabled={deshabilitado}>
-                        {deshabilitado === true ? <ThreeDots color="#FFFFFF" height="50px" width="50px" /> : "Cadastrar"}
+                        type="submit" disabled={desabilitado}>
+                        {desabilitado === true ? <ThreeDots color="#FFFFFF" height="50px" width="50px" /> : "Cadastrar"}
                     </button>
                 </form>
             </DadosCadastro>

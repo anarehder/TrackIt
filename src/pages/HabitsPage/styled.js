@@ -21,6 +21,7 @@ export const ContainerHabitos = styled.div`
 export const TituloHabitos = styled.div`
     width: 340px;
     margin-top: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +34,11 @@ export const TituloHabitos = styled.div`
         font-size: 27px;
         line-height: 35px;
     }
+`
+export const BotoesDias = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 18px;
 `
 
 export const ListaHabitos = styled.div`
@@ -51,6 +57,7 @@ export const AdicionarHabitos = styled.div`
     font-family: 'Lexend Deca', sans-serif;
     font-style: normal;
     font-weight: 400;
+    display: ${props => props.addHabito ? "" : "none"};
     input {
         width: 280px;
         font-size: 20px;
@@ -66,25 +73,6 @@ export const AdicionarHabitos = styled.div`
     input:focus {
         border: 1px solid ${coresLayout.bordaQuadros};
         outline: 1px solid ${coresLayout.bordaQuadros};
-    }
-`
-
-export const BotoesDias = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 18px;
-    button {
-        width: 30px;
-        height: 30px;
-        margin: 2px;
-        font-family: 'Lexend Deca', sans-serif;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 30px;
-        background-color: ${coresLayout.backgroundQuadros};;
-        color: ${coresLayout.textQuadros};
-        border: 1px solid ${coresLayout.bordaQuadros};
     }
 `
 

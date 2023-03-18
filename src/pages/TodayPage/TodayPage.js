@@ -14,7 +14,7 @@ export default function TodayPage() {
     const [habitosDeHoje, setHabitosDeHoje] = useState([]);
 
     const diaDeHoje = dayjs().get("day");
-
+    console.log(habitosDeHoje);
     useEffect(() => {
         
         const url = `${URL_BASE}/habits/today`;
@@ -52,7 +52,7 @@ export default function TodayPage() {
             <h1 data-test="today">{diasDaSemana[diaDeHoje]}, {dayjs().get("date")}/{dayjs().get("month")+1}</h1>
             <h2 data-test="today-counter" >Nenhum hábito concluído ainda</h2>
             {habitosDeHoje.map((h)=>(
-                <HabitoDiario habitos={h}/>
+                <HabitoDiario key={h.name} habitos={h}/>
 
             ))}
             <HabitoDiario />
