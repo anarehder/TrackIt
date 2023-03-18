@@ -1,8 +1,14 @@
 import { ContainerFooter, Vazio, Menu, Hoje } from "./styled"
 import vetorHoje from "../../assets/vetor_hoje.png"
 import { Link } from "react-router-dom"
+import { PorcentagemContext } from "../../contexts/PorcentagemContext.js"
+import { useContext } from "react"
 
 export default function Footer() {
+
+    const [valorPorcentagem, ] = useContext(PorcentagemContext);
+    console.log("porcentagem",valorPorcentagem);
+
     return (
         <ContainerFooter data-test="menu">
             <Hoje>

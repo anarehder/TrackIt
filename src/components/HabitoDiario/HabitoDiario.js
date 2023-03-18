@@ -1,18 +1,26 @@
-import { ContainerHabitoDiario, Texto, Icone, Titulo } from "./styled"
-import feito from "../../assets/done.png"
+import { ContainerHabitoDiario, Texto, Icone, Titulo, Atual, Recorde } from "./styled"
+import done from "../../assets/done.png"
 
-export default function HabitoDiario({habito}) {
-    //console.log(habito);
+export default function HabitoDiario({ name, id, atual, feito, recorde }) {
+
+    function marcar(id) {
+        console.log("marquei", id);
+    }
 
     return (
         <ContainerHabitoDiario data-test="today-habit-container">
-            <Texto status={"concluido"}>
-                <Titulo data-test="today-habit-name">Ler 1 capítulo de livro </Titulo>
-                <p data-test="today-habit-sequence" >Sequência atual: <span>3 dias</span></p>
-                <p data-test="today-habit-record">Seu recorde: <span>3 dias</span></p>
+            <Texto>
+                <Titulo data-test="today-habit-name">{name}</Titulo>
+                <p data-test="today-habit-sequence" >
+                    Sequência atual: <Atual status={feito === true ? "concluido" : ""}>{atual} dias</Atual>
+                </p>
+                <p data-test="today-habit-record">
+                    Seu recorde: <Recorde status={atual === recorde && atual > 0 ? "concluido" : ""}>{recorde} dias</Recorde>
+                </p>
             </Texto>
-            <Icone status={""}>
-                <img src={feito} alt ="concluido" data-test="today-habit-check-btn"/>
+            <Icone status={feito === true ? "concluido" : ""}>
+                <img src={done} alt="concluido" data-test="today-habit-check-btn"
+                    onClick={() => marcar(id)} />
             </Icone>
         </ContainerHabitoDiario>
     )

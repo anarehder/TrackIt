@@ -24,7 +24,7 @@ export default function HabitsPage() {
         }
     }
     console.log(form);
-    
+
     useEffect(() => {
 
         const url = `${URL_BASE}/habits`;
@@ -60,7 +60,7 @@ export default function HabitsPage() {
         console.log(body);
 
         const url = `${URL_BASE}/habits`;
-        
+
         const requisicao = axios.post(url, body, config);
 
         requisicao.then(resposta => {
@@ -78,16 +78,23 @@ export default function HabitsPage() {
         });
     }
 
-    function cancelar(){
+    function cancelar() {
         setAddHabito(!addHabito);
     }
 
-    function deletar(id){
-       const confirmar = window.confirm("Vocẽ realmente gostaria de apagar este hábito?");
-        if(confirmar){
-            const url = `${URL_BASE}/${id}`;
-            axios.delete(url,config);
-            setListaDeHabitos(listaDeHabitos.filter(h => h.id !== id));
+    function excluirHabito(id) {
+        if (window.confirm("Você gostaria de excluir esse hábito?")) {
+            const url = `${URL_BASE}/habits/${id}`;
+            const requisicao = axios.delete(url, config);
+            requisicao.then(resposta => {
+                console.log(resposta.data);
+                setListaDeHabitos(listaDeHabitos.filter(h => h.id !== id));
+            });
+    
+            requisicao.catch(erro => {
+                console.log(erro.response.data);
+            });
+            
         }
     }
 
@@ -121,19 +128,20 @@ export default function HabitsPage() {
                             value={form.name}
                             onChange={handleChange}
                             data-test="habit-name-input"
+                            disabled={desabilitado}
                             required
                         />
                         <BotoesDias>
                             {dias.map((dia, i) => <BotaoDiaSemana key={dia} dia={dia} index={i} addDay={addDay} desabilitado={desabilitado} />)}
                         </BotoesDias>
                         <BotoesFinais>
-                            <div data-test="habit-create-cancel-btn" type="button" onClick={cancelar}>Cancelar</div>
+                            <div data-test="habit-create-cancel-btn" type="button" onClick={cancelar} disabled={desabilitado}>Cancelar</div>
                             <button data-test="habit-create-save-btn" type="submit" disabled={desabilitado}>{desabilitado === true ? <ThreeDots color="#FFFFFF" height="50px" width="50px" /> : "Salvar"}</button>
                         </BotoesFinais>
                     </form>
                 </AdicionarHabitos>
                 {listaDeHabitos.length === 0 && <ListaHabitos> Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear! </ListaHabitos>}
-                {listaDeHabitos.map((l) => <Habito key={l.id} id={l.id} name={l.name} days={l.days} deletar={deletar}/>)}
+                {listaDeHabitos.map((l) => <Habito key={l.id} id={l.id} name={l.name} days={l.days} excluirHabito={excluirHabito} />)}
             </ContainerHabitos>
             <Footer />
         </>

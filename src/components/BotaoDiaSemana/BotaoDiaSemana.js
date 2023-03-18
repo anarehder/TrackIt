@@ -16,7 +16,7 @@ export default function BotaoDiaSemana({dia, index, addDay, desabilitado}) {
 
     return (
         <BotaoDia data-test="habit-day" selecionado={selecionado}
-            type="button"
+            type="button" disabled={desabilitado}
             onClick={() => selecionaDia(index)}>
             {dia}
         </BotaoDia>

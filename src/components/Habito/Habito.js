@@ -2,10 +2,10 @@ import { ContainerHabito, Titulo, Dias, BotaoDia } from "./styled"
 import lixeira from "../../assets/lixeira.png"
 import { dias } from "../../constants/dias";
 
-export default function Habito({ id, name, days, deletar }) {
+export default function Habito({ id, name, days, excluirHabito }) {
 
     function deletarHabito(id){
-        deletar(id);
+        excluirHabito(id);
     }
 
     return (

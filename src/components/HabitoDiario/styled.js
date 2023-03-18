@@ -26,10 +26,16 @@ export const Texto = styled.div`
         line-height: 16px;
         color: ${coresLayout.text};
     }
-    span{
-        color: ${props => props.status === "concluido" ?
+`
+
+export const Atual = styled.span`
+    color: ${props => props.status === "concluido" ?
         coresHabitos.concluido : coresLayout.text};
-    }
+`
+
+export const Recorde = styled.span`
+    color: ${props => props.status === "concluido" ?
+        coresHabitos.concluido : coresLayout.text};
 `
 
 export const Titulo = styled.div`

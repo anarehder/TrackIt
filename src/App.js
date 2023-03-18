@@ -5,23 +5,26 @@ import HabitsPage from "./pages/HabitsPage/HabitsPage.js"
 import TodayPage from "./pages/TodayPage/TodayPage.js"
 import HistoryPage from "./pages/HistoryPage/HistoryPage.js"
 import { UserContext } from "./contexts/UserContext.js"
+import { PorcentagemContext } from "./contexts/PorcentagemContext.js"
 import { useState } from "react";
 
 export default function App() {
   const [userDados, setUserDados] = useState();
-  
+  const [valorPorcentagem, setValorPorcentagem] = useState();
+
   return (
     <UserContext.Provider value={[userDados, setUserDados]}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/cadastro" element={<RegisterPage />} />
-          <Route path="/habitos" element={<HabitsPage />} />
-          <Route path="/hoje" element={<TodayPage />} />
-          <Route path="historico" element={<HistoryPage />} />
-        </Routes>
-
-      </BrowserRouter>
+      <PorcentagemContext.Provider value={[valorPorcentagem, setValorPorcentagem]}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/cadastro" element={<RegisterPage />} />
+            <Route path="/habitos" element={<HabitsPage />} />
+            <Route path="/hoje" element={<TodayPage />} />
+            <Route path="historico" element={<HistoryPage />} />
+          </Routes>
+        </BrowserRouter>
+      </PorcentagemContext.Provider>
     </UserContext.Provider>
   );
 }
