@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {coresLayout, coresHabitos} from "../../constants/colors.js"
+import {coresLayout, coresHabitos, coresCheck} from "../../constants/colors.js"
 
 export const ContainerHabitoDiario = styled.div`
     width: 340px;
@@ -11,7 +11,7 @@ export const ContainerHabitoDiario = styled.div`
     font-style: normal;
     font-weight: 400;
     border-radius: 5px;
-    color: ${coresLayout.text};
+    color: ${coresHabitos.habitoNaoConcluido};
     display: flex;
     justify-content: space-between;
 `
@@ -24,7 +24,7 @@ export const Texto = styled.div`
         margin: 0 !important;
         font-size: 13px;
         line-height: 16px;
-        color: ${coresLayout.text};
+        color: ${coresHabitos.habitoNaoConcluido};
     }
 `
 
@@ -43,19 +43,21 @@ export const Titulo = styled.div`
     margin: 0 0 7px 0 !important;
     font-size: 20px;
     line-height: 25px;
-    color: ${coresLayout.text};
+    color: ${coresHabitos.habitoNaoConcluido};
 `
 
 export const Icone = styled.div`
     background-color: ${props => props.status === "concluido" ?
-     coresHabitos.habitoConcluido : coresLayout.background};
+     coresHabitos.habitoConcluido : coresCheck.background};
     width: 70px;
     height: calc(100%-30px);
     margin: 15px 15px 15px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #E7E7E7;
+    border: ${props => props.status === "concluido" ?
+     "none": `1px solid ${coresCheck.border}`};
+     ;
     border-radius: 5px;
     img{
         width: 35px;

@@ -13,3 +13,5 @@ backgroundSelecionados:"#CFCFCF", bordaQuadros:"#D4D4D4",habitoconcluido:"#8FC54
 export const coresFooter = {background:"#FFFFFF", text:"#52B6FF"};
 
 export const coresHabitos = {vazio:"#BABABA", habitoConcluido:"#8FC549", habitoNaoConcluido:"#666666"};
+
+export const coresCheck = {background:"#EBEBEB", border:"#E7E7E7"}
