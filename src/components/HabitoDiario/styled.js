@@ -30,12 +30,12 @@ export const Texto = styled.div`
 
 export const Atual = styled.span`
     color: ${props => props.status === "concluido" ?
-        coresHabitos.concluido : coresLayout.text};
+        coresHabitos.habitoConcluido : coresHabitos.habitoNaoConcluido};
 `
 
 export const Recorde = styled.span`
     color: ${props => props.status === "concluido" ?
-        coresHabitos.concluido : coresLayout.text};
+        coresHabitos.habitoConcluido : coresHabitos.habitoNaoConcluido};
 `
 
 export const Titulo = styled.div`
@@ -48,7 +48,7 @@ export const Titulo = styled.div`
 
 export const Icone = styled.div`
     background-color: ${props => props.status === "concluido" ?
-     coresHabitos.concluido : coresLayout.background};
+     coresHabitos.habitoConcluido : coresLayout.background};
     width: 70px;
     height: calc(100%-30px);
     margin: 15px 15px 15px 0;

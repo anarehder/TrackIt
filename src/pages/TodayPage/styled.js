@@ -25,7 +25,7 @@ export const ContainerToday = styled.div`
 
 export const QuantidadeConcluida = styled.h2`
         color:${props => props.valorPorcentagem !== 0 ?
-        coresHabitos.concluido : coresHabitos.vazio};
+        coresHabitos.habitoConcluido : coresHabitos.vazio};
         width: 340px;
         margin: 5px auto;
         font-size: 18px;
