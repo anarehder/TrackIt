@@ -17,7 +17,7 @@ export default function HabitoDiario({ name, id, atual, feito, recorde, marcarHa
                     Sequência atual: <Atual data-test="today-habit-sequence" status={feito === true ? "concluido" : ""}>{atual} dias</Atual>
                 </p>
                 <p>
-                    Seu recorde: <Recorde data-test="today-habit-record" status={feito === true && recorde !== atual ? "" : "concluido"}>{recorde} dias</Recorde>
+                    Seu recorde: <Recorde data-test="today-habit-record" status={feito === true && recorde > atual ? "" : "concluido"}>{recorde} dias</Recorde>
                 </p>
             </Texto>
             <Icone status={feito === true ? "concluido" : ""} onClick={() => marcar(id, feito)}>
